@@ -1,0 +1,21 @@
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+.venv/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.dbg
