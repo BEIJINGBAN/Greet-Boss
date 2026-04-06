@@ -12,11 +12,17 @@ keyboards = Controller()
 lock = threading.Lock()
 is_executing = False
 listener = None
-delay_time = 1
+delay_time = 1.5
 # 可配置的问候内容
 greeting_lines = [
     "经理,你好",
     "我是新疆大学软件工程应届生赵宇跃,主攻Java后端开发",
+    "曾在浙江保融科技参与报表与账单系统",
+    "基于 Spring + Dubbo + MyBatis 实现 Excel 导入导出与 SFTP 安全传输，并结合策略+工厂模式与自定义线程池优化导出性能",
+    "通过 Canal+RabbitMQ+SDK 实现订单异步推送。",
+    "此前在上海已式文化科技主导留学规划系统后端开发，完成院校信息 CRUD、Excel 导入导出及多角色聊天未读消息统计；",
+    "在新疆丝路融创开发校招系统时，设计职业推荐与动态 SQL 优化分页查询。",
+    "技术博客：https://blog.csdn.net/m0_73884162?type=blog",
     "对贵司Java岗位非常感兴趣,期待进一步沟通!"
 ]
 
@@ -77,7 +83,7 @@ def launch_gui():
         update_content()
         update_delay()
         start_listener()
-        status_label.config(text="监听中... 按 Tab+q 自动输入")
+        status_label.config(text="监听中... 按 {} 自动输入")
 
     def on_stop():
         stop_listener()
@@ -90,6 +96,8 @@ def launch_gui():
     text_input = tk.Text(window, height=10, width=60)
     text_input.insert(tk.END, "\n".join(greeting_lines))
     text_input.pack()
+
+    window.attributes("-topmost", True)
 
     delay_frame = tk.Frame(window)
     delay_frame.pack(pady=5)
